@@ -1,4 +1,5 @@
 # vim:filetype=ruby
 #system('ln -nfs ~/.homesick/repos/dotfiles/dircolors-solarized/dircolors.ansi-dark ~/.dircolors')
+system('bash ~/.homesick/repos/dotfiles/fonts/install.sh')
 system('bash ~/.homesick/repos/dotfiles/home/.local/bin/install_profile.sh ~/.homesick/repos/dotfiles/profile.d')
 
