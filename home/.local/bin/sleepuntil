@@ -1,0 +1,15 @@
+#!/bin/bash
+
+current_epoch=$(date +%s)
+target_epoch=$(date -d "$*" +%s)
+
+sleep_seconds=$(( $target_epoch - $current_epoch ))
+
+if [[ $sleep_seconds < 0 ]]
+then
+    sleep_seconds=$(( $sleep_seconds + 86400 ))
+fi
+
+echo "sleeping $sleep_seconds seconds"
+
+sleep $sleep_seconds
