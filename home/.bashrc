@@ -46,3 +46,5 @@ if [ -d ${HOME}/.profile.d ]; then
     done
 fi
 
+PATH=/usr/local/bin:${PATH}
+
