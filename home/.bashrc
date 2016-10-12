@@ -41,7 +41,7 @@ export GIT_SSL_NO_VERIFY=true
 if [ -d ${HOME}/.profile.d ]; then
     for i in ${HOME}/.profile.d/*
     do
-        echo "Including ${i}"
+        #echo "Including ${i}"
         . ${i}
     done
 fi
