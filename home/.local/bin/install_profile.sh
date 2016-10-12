@@ -2,10 +2,9 @@
 
 target_dir=${HOME}/.profile.d
 
-if [[ ! -d ${target_dir} ]]
+if [[ ! -e ${target_dir} ]]
 then
-    echo "Cannot install profile scripts to '${target_dir}'"
-    exit -1
+    mkdir -p ${target_dir}
 fi
 
 source_dir=$1
