@@ -34,7 +34,7 @@ else
     PS1='\[\033[01;34m\]\u@\h\[\033[00m\]:\w\$ '
 fi
 
-export TERM=screen-256color
+#export TERM=screen-256color
 
 export GIT_SSL_NO_VERIFY=true
 
