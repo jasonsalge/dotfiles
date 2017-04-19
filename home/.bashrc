@@ -27,12 +27,14 @@ if [ -f ~/.bash_ssh_agent ]; then
 fi
 
 # git completion and set prompt
-if [ -f ~/.bash_git_completion.sh ]; then
-    . ~/.bash_git_completion.sh
-    PS1='\[\033[01;34m\]\u@\h\[\033[00m\]:\w$(__git_ps1 " (%s)")\$ '
-else
+#if [ -f ~/.bash_git_completion.sh ]; then
+    #. ~/.bash_git_completion.sh
+    #PS1='\[\033[01;34m\]\u@\h\[\033[00m\]:\w$(__git_ps1 " (%s)")\$ '
+#else
     PS1='\[\033[01;34m\]\u@\h\[\033[00m\]:\w\$ '
-fi
+    #export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]$(__git_ps1 " (%s)") \$ '
+    export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+#fi
 
 #export TERM=screen-256color
 
