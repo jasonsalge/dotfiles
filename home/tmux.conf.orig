@@ -3,8 +3,7 @@ unbind-key C-b
 bind-key C-a last-window
 bind-key r source-file ~/.tmux.conf \; display "reloaded!"
 
-set -g default-terminal "tmux-256color"
-#set -g default-terminal "screen-256color"
+set -g default-terminal "screen-256color"
 #set -g default-terminal "screen-256color-italic"
 #set -g default-terminal "xterm-256color"
 set -g history-limit 50000
@@ -29,6 +28,7 @@ unbind-key l
 bind-key l select-pane -R
 
 bind ) source-file ~/.tmux.conf
+bind ) source-file ~/.tmux.conf
 
 set-option -g pane-border-fg white
 #set-option -g pane-active-border-fg green
@@ -40,17 +40,11 @@ set-option -g pane-border-fg white
 
 # Set status bar
 # TODO
-#source-file ~/.vim/bundle/powerline/powerline/bindings/tmux/powerline_tmux_2.1_plus.conf
-#set-option -g status-position top
-
-#if-shell "ls $(python -c 'import site; print(site.getsitepackages()[0])')/powerline/bindings/tmux/powerline.conf" \
-    'run-shell "tmux source-file $(python -c '"'"'import site; print(site.getsitepackages()[0])'"'"')/powerline/bindings/tmux/powerline.conf"'
+source-file ~/.vim/bundle/powerline/powerline/bindings/tmux/powerline_tmux_2.1_plus.conf
+set-option -g status-position top
 
 #set-option -g status on
-set-option -g status-position top
-set-window-option -g window-status-activity-attr bold
-set-window-option -g window-status-bell-attr bold
-
+#set-option -g status-position top
 #set-option -g status-right "%Y-%m-%d %A %H:%M"
 #set-option -g status-left  "#S #I:#P"
 #set-option -g status-fg green
@@ -75,21 +69,18 @@ setw -g window-status-current-format "#I:#W"
 
 # miscellaneous
 set -ga update-environment ' POWERLINE_CONFIG_COMMAND DISPLAY TERM_PROGRAM SSH_CLIENT SSH_CONNECTION SSH_AUTH_SOCK GNOME_KEYRING_PID GNOME_KEYRING_SOCKET'
+#set -ga update-environment ' DISPLAY TERM_PROGRAM SSH_CLIENT SSH_CONNECTION SSH_AUTH_SOCK GNOME_KEYRING_PID GNOME_KEYRING_SOCKET'
 setenv -g SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
 set-window-option -g xterm-keys on
 unbind-key -n C-Left
 unbind-key -n C-Right
-#set -g terminal-overrides "xterm*:kLFT5=\eOD:kRIT5=\eOC:kUP5=\eOA:kDN5=\eOB:smkx@:rmkx@:colors=256"
-set -ag terminal-overrides ",xterm*:kLFT5=\eOD:kRIT5=\eOC:kUP5=\eOA:kDN5=\eOB:smkx@:rmkx@:sitm=\e[3m:ritm=\e[23m"
-set -ag terminal-overrides ",*256color*:Tc"
-
-
+set -g terminal-overrides "xterm*:kLFT5=\eOD:kRIT5=\eOC:kUP5=\eOA:kDN5=\eOB:smkx@:rmkx@:colors=256"
+#set -g mouse on
 # to enable mouse scroll, see https://github.com/tmux/tmux/issues/145#issuecomment-150736967
 #bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'copy-mode -e; send-keys -M'"
 #bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
 #bind -n WheelDownPane select-pane -t= \; send-keys -M
 set -g mouse on
-#set-option -g set-clipboard off
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
 bind -n WheelDownPane select-pane -t= \; send-keys -M
 bind -n C-WheelUpPane select-pane -t= \; copy-mode -e \; send-keys -M
@@ -97,7 +88,6 @@ bind -t vi-copy    C-WheelUpPane   halfpage-up
 bind -t vi-copy    C-WheelDownPane halfpage-down
 bind -t emacs-copy C-WheelUpPane   halfpage-up
 bind -t emacs-copy C-WheelDownPane halfpage-down
-#set -g mouse off
 
 bind -n Pageup copy-mode -u
 
