@@ -49,4 +49,5 @@ if [ -d ${HOME}/.profile.d ]; then
 fi
 
 PATH=/usr/local/bin:${PATH}
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/lib
 
