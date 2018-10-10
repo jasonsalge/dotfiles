@@ -11,7 +11,7 @@
 # ridden in every subshell.
 
 # Some applications read the EDITOR variable to determine your favourite text
-# editor. So uncomment the line below and enter the editor of your choice :-)
+# editor. So uncomment the line below and enter the editor of your choice :-)A
 export EDITOR=/usr/bin/vim
 
 test -s ~/.alias && . ~/.alias || true
@@ -50,4 +50,13 @@ fi
 
 PATH=/usr/local/bin:${PATH}
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/lib
+
+function itmac()
+{
+    if [[ -f /etc/profile.d/bats-opt.sh && -z "$BATS_OPT_SH_SOURCED" ]]
+    then
+        . /etc/profile
+    fi
+    tmac $*
+}
 
