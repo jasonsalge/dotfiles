@@ -53,10 +53,12 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${HOME}/lib
 
 function itmac()
 {
+    session=$1
+    shift
     if [[ -f /etc/profile.d/bats-opt.sh && -z "$BATS_OPT_SH_SOURCED" ]]
     then
         . /etc/profile
     fi
-    tmac $*
+    tmac $session
 }
 

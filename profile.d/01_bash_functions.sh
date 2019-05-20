@@ -232,3 +232,11 @@ dedupe_path_list() {
     echo "${_deduped_list}"
 }
 
+path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
+path_prepend () { path_remove $1; export PATH="$1:$PATH"; }
+path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
+
+ld_path_append ()  { ld_path_remove $1; export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$1"; }
+ld_path_prepend () { ld_path_remove $1; export LD_LIBRARY_PATH="$1:$LD_LIBRARY_PATH"; }
+ld_path_remove ()  { export LD_LIBRARY_PATH=`echo -n $LD_LIBRARY_PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
+
